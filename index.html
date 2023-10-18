@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+
+    <style>
+        body {background: lightgrey; }
+        #Button {
+            position: absolute;
+            top: 80%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: "Pretendard";
+            font-weight: 400;
+            z-index: 1;
+        }
+        #avoidButton {
+            position: absolute;
+            top: 80%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: "Pretendard";
+            font-weight: 400;
+        }
+        #back {display: block; width: 30%; margin-top: 0; margin-left: 100px; padding-top: 70px}
+        h1 {
+            position: absolute;
+            font-size: 2rem;
+            font-family: "Pretendard";
+            font-weight: 700;
+            left: 450px;
+            top: 150px
+        }
+        h2 {
+            position: absolute;
+            font-size: 1.5rem;
+            font-family: "Pretendard";
+            font-weight: 700;
+            left: 450px;
+            top: 250px
+        }
+        #a1 {
+            position: absolute;
+            font-size: 1.5rem;
+            font-family: "Pretendard";
+            font-weight: 400;
+            left: 450px;
+            top: 50px;
+        }
+        #a2 {
+            position: absolute;
+            font-size: 1rem;
+            font-family: "Pretendard";
+            font-weight: 700;
+            left: 450px;
+            top: 225px;
+        }
+        #a3 {
+            position: absolute;
+            font-size: 1.5rem;
+            font-family: "Pretendard";
+            font-weight: 400;
+            left: 450px;
+            top: 250px;
+        }
+        #a4 {
+            font-size: 1rem;
+            font-family: "Pretendard";
+            font-weight: 400;
+            width: 700px;
+            margin: 20px auto;
+        }
+        #a5 {
+            font-size: 0.5rem;
+            font-family: "Pretendard";
+            font-weight: 100;
+            width: 700px;
+            margin: 20px auto;
+        }
+        #white {
+            background: white;
+            width: 50rem;
+            height: 50rem;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+        #btn {
+            background: red;
+            position: absolute;
+            color: white;
+            left: 450px;
+            top: 400px;
+            font-size: 1.5rem;
+            font-family: "Pretendard";
+            font-weight:700;
+            padding: 20px;
+        }
+        #text {
+            position: absolute;
+            width: 1100px;
+            left: 0px;
+            top: 300px
+        }
+        #slide {
+            background: white;
+            position: fixed;
+            bottom: 0;
+            left: 50%; /* 왼쪽 끝에서 가운데 정렬로 수정 */
+            transform: translateX(-50%); /* 가운데 정렬을 위해 이동합니다. */
+            width: 50rem;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="white">
+        <img id="back" src="netflix.png">
+        <h1>Payment update details required</h1>
+        <h2>Dear ooo,</h2>
+        <div id="text">
+            <p id="a1">We have noticed that some data from your account information seems inaccurate or unverified. You have to check your information in order to continue using our service smoothly, please check your account information by clicking the link below.</p>
+            <p id="a2">-What do I need to do?</p>
+            <p id="a3">'마우스 커서를 피하는 버튼'을 활용하여 메일 피싱을 조심하라는 메세지를 주고자합니다. 시간이 된다면 애니메이션을 넣어 완성도를 높이고 싶지만, 페이지 제작도 생각보다 어려워서 가능할지는 모르겠습니다...<br>Please log in to Netflix to confirm your identity and review all your recent activity. Your quick response will help restore your account.</p>
+            <button id="btn">[UPDATE ACCOUNT NOW]</div>
+                <div id="slide">
+                    <p id="a4">We understand it may be frustrating not to have full access to your account. We want to work with you to get your account back to normal as quickly as possible.</p>
+                    <p id="a5">Copyright 2023 Netflix. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <button id="avoidButton">아니오</button>
+        <button id="Button" onclick="phishingAlert()">예</button>
+
+        <script>
+            const button = document.getElementById('avoidButton');
+
+            function phishingAlert() {
+                alert("Alert: This is a phishing attempt!");
+
+            }
+
+            function moveButtonRandomly() {
+                const maxWidth = window.innerWidth - button.clientWidth;
+                const maxHeight = window.innerHeight - button.clientHeight;
+
+                const randomX = Math.random() * maxWidth;
+                const randomY = Math.random() * maxHeight;
+
+                button.style.left = randomX + 'px';
+                button.style.top = randomY + 'px';
+            }
+
+            button.addEventListener('mouseenter', moveButtonRandomly);
+
+            function randomBH(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        </script>
+    </body>
+    </html>
